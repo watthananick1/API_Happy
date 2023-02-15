@@ -7,8 +7,7 @@ const Styles = require("./Controller/styles_con")
 
 app.use(express.json())
 app.get('/', (req, res) => {
-  console.log(db)
-  res.send("Hello world")
+  res.send("Hello! welcome to CarsAPI")
 })
 
 app.get('/getCars', Cars.getCars)
