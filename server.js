@@ -37,6 +37,6 @@ app.post('/addStyle', Styles.createStyle)
 app.post('/updateStyle/:id', Styles.updateStyle)
 app.delete('/deleteStyle/:id', Styles.deleteStyle)
 
-app.listen(3000, () => {
-  console.log('Start server at port 3000.')
+app.listen(8080, () => {
+  console.log('Start server at port 8080.')
 })
