@@ -25,13 +25,44 @@ const getOrders = (request, response) => {
       response.status(200).json(results.rows)
     })
   }
+  const getOrderByDate = (request, response) => {
+    const { o_date } = request.body
+  
+    pool.query('SELECT * FROM public."Orders" WHERE o_date = $1', [o_date], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+  
+  const getOrderByDateNow = (request, response) => {
+    const dateNow = new Date();
+    pool.query('SELECT * FROM public."Orders" WHERE o_date = $1', [dateNow] ,(error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+  
+  const getOrderByDateRenge = (request, response) => {
+    const { first_date, end_date } = request.body
+  
+    pool.query('SELECT * FROM public."Orders" WHERE o_date between $1 and $2 ', [first_date, end_date] ,(error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
   
   const createOrder = (request, response) => {
-    const { user_id, car_id, style_id, order_total } = request.body
+    const { user_id, car_id, style_id, order_total, o_date, o_status } = request.body
     
-    console.log(user_id, car_id, style_id, order_total)
+    console.log(user_id, car_id, style_id, order_total, o_date, o_status)
     
-    pool.query('INSERT INTO public."Orders" ( user_id, car_id, style_id, order_total ) VALUES ($1, $2, $3, $4)', [user_id, car_id, style_id, order_total], (error, results) => {
+    pool.query('INSERT INTO public."Orders" ( user_id, car_id, style_id, order_total, o_date, o_status ) VALUES ($1, $2, $3, $4, $5, $6)', [user_id, car_id, style_id, order_total, o_date, o_status], (error, results) => {
       if (error) {
         throw error
       }
@@ -41,11 +72,11 @@ const getOrders = (request, response) => {
   
   const updateOrder = (request, response) => {
     const id = parseInt(request.params.id)
-    const { user_id, car_id, style_id, order_total } = request.body
+    const { user_id, car_id, style_id, order_total, o_date, o_status } = request.body
   
     pool.query(
-      'UPDATE public."Orders" SET user_id = $1, car_id = $2, style_id = $3, order_total = $4  WHERE o_id = $5',
-      [user_id, car_id, style_id, order_total, id],
+      'UPDATE public."Orders" SET user_id = $1, car_id = $2, style_id = $3, order_total = $4, o_date = $5, o_status = $6  WHERE o_id = $7',
+      [user_id, car_id, style_id, order_total, o_date, o_status, id],
       (error, results) => {
         if (error) {
           throw error
@@ -71,5 +102,8 @@ const getOrders = (request, response) => {
     getOrderById,
     createOrder,
     updateOrder,
-    deleteOrder
+    deleteOrder,
+    getOrderByDate,
+    getOrderByDateNow,
+    getOrderByDateRenge
   }

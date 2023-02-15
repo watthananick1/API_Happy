@@ -25,7 +25,10 @@ app.delete('/deleteUser/:id', Users.deleteUser)
 
 app.get('/getOrders', Orders.getOrders)
 app.get('/getOrders/:id', Orders.getOrderById)
+app.get('/getOrderByDateNow', Orders.getOrderByDateNow)
 app.post('/addOrder', Orders.createOrder)
+app.post('/getOrderByDate', Orders.getOrderByDate)
+app.post('/getOrderByDatRenge', Orders.getOrderByDateRenge)
 app.post('/updateOrder/:id', Orders.updateOrder)
 app.delete('/deleteOrder/:id', Orders.deleteOrder)
 
