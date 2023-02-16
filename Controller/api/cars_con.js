@@ -17,7 +17,7 @@ const getCars = (request, response) => {
 
   const getCarById = (request, response) => {
     const id = parseInt(request.params.id)
-  
+    console.log(id)
     pool.query('SELECT * FROM public."Cars" WHERE car_id = $1', [id], (error, results) => {
       if (error) {
         throw error
@@ -27,15 +27,28 @@ const getCars = (request, response) => {
   }
   
   const createCar = (request, response) => {
-    const { car_brand, car_size, car_price } = request.body
+    const { car_brand, car_size, car_price, car_style } = request.body
     
-    console.log(car_brand, car_size, car_price)
+    console.log(car_brand, car_size, car_price, car_style)
     
-    pool.query('INSERT INTO public."Cars" (car_brand, car_size, car_price ) VALUES ($1, $2, $3)', [car_brand, car_size, car_price], (error, results) => {
+    pool.query('INSERT INTO public."Cars" (car_brand, car_size, car_price, car_style ) VALUES ($1, $2, $3, $4)', [car_brand, car_size, car_price, car_style], (error, results) => {
       if (error) {
         throw error
       }
       response.status(201).send(`User added with ID: ${results.insertId}`)
+    })
+  }
+  
+  const searchCar = (request, response) => {
+    const { search } = request.body
+    
+    let search1 = '%'+search+'%'
+    console.log(search1)
+    pool.query('SELECT * FROM public."Cars" WHERE "car_brand" LIKE $1  OR "car_size" LIKE $1 OR "car_style" LIKE $1', [ search1 ], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
     })
   }
   
@@ -65,11 +78,36 @@ const getCars = (request, response) => {
       response.status(200).send(`User deleted with ID: ${id}`)
     })
   }
+
+  const getCarsByLimit = (request, response) => {
+    const id = parseInt(request.params.id)
+  
+    pool.query('SELECT * FROM public."Cars" Limit $1', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
+
+  const getCarsByPage = (request, response) => {
+    const id = parseInt(request.params.id)
+  
+    pool.query('SELECT * FROM public."Cars" Limit 10 OFFSET ($1*10)-10', [id], (error, results) => {
+      if (error) {
+        throw error
+      }
+      response.status(200).json(results.rows)
+    })
+  }
   
   module.exports = {
     getCars,
     getCarById,
+    getCarsByLimit,
+    getCarsByPage,
     createCar,
     updateCar,
-    deleteCar
+    deleteCar,
+    searchCar
   }
