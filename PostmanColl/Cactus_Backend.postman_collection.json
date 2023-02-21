@@ -1,0 +1,688 @@
+{
+	"info": {
+		"_postman_id": "4f82fd9d-c69a-4306-b890-3bc1d9c64213",
+		"name": "Cactus_Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23711124"
+	},
+	"item": [
+		{
+			"name": "addCar",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true,
+				"strictSSL": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"car_brand\": \"ISU\",\r\n    \"car_size\": \"ตัวเล็ก\",\r\n    \"car_price\": 595000,\r\n    \"car_style\": \"สี : ดำ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addCar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addCar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:3000/addCar",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"car_brand\": \"SCA\",\r\n    \"car_size\": \"Small\",\r\n    \"car_price\": 500000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/getCars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"getCars"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "29"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1d-bT8uuVEud+tUSiJiSdBsIxG+2VM\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 14 Feb 2023 18:50:43 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "User added with ID: undefined"
+				}
+			]
+		},
+		{
+			"name": "updateCar/id",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true,
+				"strictSSL": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"car_brand\": \"ISU\",\r\n    \"car_size\": \"ตัวเล็ก\",\r\n    \"car_price\": 595000,\r\n    \"car_style\": \"สี : ดำ\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateCar/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateCar",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCar/id",
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true,
+				"strictSSL": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/deleteCar/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"deleteCar",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCars",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getCars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getCars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCars/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getCars/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getCars",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchCar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"search\": \"SCA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/searchCar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"searchCar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrders/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrders/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrders",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\": 2,\r\n    \"car_id\": 1,\r\n    \"style_id\": 1,\r\n    \"order_total\": 883400,\r\n    \"o_date\": \"2023-01-14:10:45.000Z\",\r\n    \"o_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateOrder/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"o_status\": \"Pending\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateOrder/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateOrder",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteOrder/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/deleteOrder/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"deleteOrder",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderByDate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"o_date\": \"2023-02-15\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getOrderByDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrderByDate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderByDateNow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrderByDateNow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrderByDateNow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderByDatRenge",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"first_date\": \"2022-12-31T17:00:00.000Z\",\r\n    \"end_date\": \"2023-02-16T17:00:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getOrderByDateRenge",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrderByDateRenge"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrderByStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"search\": \"Order\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/getOrderByStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrderByStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersWithAddress",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrdersWithAddress",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrdersWithAddress"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getUsers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getUsers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getUsers/id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getUsers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getUsers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"user_fname\": \"Manee\",\r\n    \"user_lname\": \"Berito\",\r\n    \"username\": \"John123\",\r\n    \"user_address\": \"NewYork 11 st.\",\r\n    \"user_email\": \"John@mail.com\",\r\n    \"user_phone\": \"1234567890\",\r\n    \"user_password\": \"123\",\r\n    \"user_status\": \"user\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/addUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"addUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUser/id",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"user_fname\": \"Manee\",\r\n    \"user_lname\": \"Berito\",\r\n    \"username\": \"John123\",\r\n    \"user_address\": \"NewYork 11 st.\",\r\n    \"user_email\": \"John@mail.com\",\r\n    \"user_phone\": \"1234567890\",\r\n    \"user_password\": \"1234\",\r\n    \"user_status\": \"user\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateUser/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateUser",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteUser/id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/deleteUser/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"deleteUser",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarsByLimit/limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getCarsByLimit/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getCarsByLimit",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarsByPage/page_number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getCarsByPage/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getCarsByPage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersByPage/page_number",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrdersByPage/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrdersByPage",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOrdersByLimit/limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/getOrdersByLimit/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"getOrdersByLimit",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
